@@ -1,3 +1,4 @@
+#baekjoon 1759
 import sys
 
 def dfs(depth, index):
@@ -21,9 +22,7 @@ def dfs(depth, index):
             del temp[-1]
 
 r,c = map(int, sys.stdin.readline().split(' '))
-chrs = list(map(str, sys.stdin.readline().split(' ')))
-print(chrs)
-chrs.sort()
+chrs = input().split()
 visited = [0 for i in range(c)]
 temp = []
 
