@@ -1,28 +1,30 @@
-#baekjoon 9663 
+# x번째 행에 놓은 queen에 대해서 금정 
+def check(x):
+    # 이전 행에서 놓았던 모든 queen들을 확인 
+    for i in range(x):
+        # 위쪽 혹은 대각선을 확인 
+        if row[x] == row[i]:
+            return False
+        if abs(row[x]- row[i]) == x - i:
+            return False
+    return True
+    
+# x번째 행에 대하여 처리 
+def dfs(x):
+    global result
+    if x == n:
+        result += 1
+    else :
+        # x번째 행의 각 열에 Queen을 둔다고 가정 
+        for i in range(n):
+            row[x] = i
+            # 해당 위치에 queen을 두어도 괜찮은 경우 
+            if check(x):
+                # 다음 행으로 넘어가기 
+                dfs(x + 1)
+
 n = int(input())
-col = [0] * (n + 1)
-count = 0
-
-def solve(depth, col):
-    global count
-    k = len(col) - 1       
-    if (promising(depth, col)):
-        if depth == k :
-          count += 1
-          return
-        else :
-            for i in range(1, k + 1):
-                col[depth + 1] = i                 
-                solve(depth + 1 , col)
-            
-def promising(depth, col):
-    k = 1
-    flag = True
-    while k < depth and flag == True:
-            if col[depth] == col[k] or depth - k == abs(col[depth] - col[k]) :
-                flag = False
-            k += 1    
-    return flag
-
-solve(0, col)
-print(count)
+row = [0] * n
+result = 0
+dfs(0)
+print(result)
