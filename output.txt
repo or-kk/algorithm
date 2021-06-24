@@ -1,15 +1,3 @@
-['a', 't', 'c', 'i', 's', 'w']
-acis
-acit
-aciw
-acst
-acsw
-actw
-aist
-aisw
-aitw
-astw
-cist
-cisw
-citw
-istw
+3
+16
+1
